@@ -5,6 +5,11 @@
   gap: 10px;
 }
 
+button {
+  display: block;
+  margin: auto;
+}
+
 .square {
   height: 350px;
   width: 350px;
