@@ -5,10 +5,11 @@
 }
 
 .container {
+  height: 960px;
+  width: 960px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 10px;
 }
 
 button {
