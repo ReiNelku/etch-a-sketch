@@ -1,12 +1,25 @@
-for (let i = 0; i < 16; i++) {
-  const gridItem = document.createElement("div");
-  gridItem.classList.add("square");
+function generateGrid(rowSize) {
+  const gridSize = rowSize ** 2;
 
-  const container = document.querySelector(".container");
-  container.appendChild(gridItem);
+  const gridItemSize = calculateGridItemSize(rowSize);
+
+  for (let i = 0; i < gridSize; i++) {
+    const gridItem = document.createElement("div");
+    gridItem.setAttribute(
+      "style",
+      `border: 1px solid black; height: ${gridItemSize}px; width: ${gridItemSize}px;`
+    );
+
+    const container = document.querySelector(".container");
+    container.appendChild(gridItem);
+  }
 }
 
-const gridItems = document.querySelectorAll(".square");
+function calculateGridItemSize(size) {
+  return 960 / size;
+}
+
+const gridItems = document.querySelectorAll(".container div");
 
 gridItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
