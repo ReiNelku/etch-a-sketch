@@ -30,7 +30,11 @@ function generateGrid(rowSize) {
       `border: 1px solid black; height: ${gridItemSize}px; width: ${gridItemSize}px;`
     );
     gridItem.addEventListener("mouseenter", () => {
-      gridItem.style.backgroundColor = "blue";
+      const randomRedValue = generateRandomColor();
+      const randomGreenValue = generateRandomColor();
+      const randomBlueValue = generateRandomColor();
+
+      gridItem.style.backgroundColor = `rgb(${randomRedValue}, ${randomGreenValue}, ${randomBlueValue})`;
     });
 
     container.appendChild(gridItem);
@@ -39,6 +43,10 @@ function generateGrid(rowSize) {
 
 function calculateGridItemSize(size) {
   return 960 / size;
+}
+
+function generateRandomColor() {
+  return Math.floor(Math.random() * 256);
 }
 
 generateGrid(rowSize);
