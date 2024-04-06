@@ -1,4 +1,22 @@
+let rowSize = 16;
+
+const button = document.querySelector("button");
 const container = document.querySelector(".container");
+
+button.addEventListener("click", () => {
+  rowSize = +prompt("Row Size: ");
+
+  if (rowSize > 100) {
+    rowSize = 100;
+  } else if (rowSize < 1) {
+    rowSize = 16;
+  }
+
+  const gridItems = document.querySelectorAll(".container div");
+
+  gridItems.forEach((item) => container.removeChild(item));
+  generateGrid(rowSize);
+});
 
 function generateGrid(rowSize) {
   const gridSize = rowSize ** 2;
@@ -22,3 +40,5 @@ function generateGrid(rowSize) {
 function calculateGridItemSize(size) {
   return 960 / size;
 }
+
+generateGrid(rowSize);
