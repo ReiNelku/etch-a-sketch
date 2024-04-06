@@ -1,3 +1,5 @@
+const container = document.querySelector(".container");
+
 function generateGrid(rowSize) {
   const gridSize = rowSize ** 2;
 
@@ -9,8 +11,10 @@ function generateGrid(rowSize) {
       "style",
       `border: 1px solid black; height: ${gridItemSize}px; width: ${gridItemSize}px;`
     );
+    gridItem.addEventListener("mouseenter", () => {
+      gridItem.style.backgroundColor = "blue";
+    });
 
-    const container = document.querySelector(".container");
     container.appendChild(gridItem);
   }
 }
@@ -18,11 +22,3 @@ function generateGrid(rowSize) {
 function calculateGridItemSize(size) {
   return 960 / size;
 }
-
-const gridItems = document.querySelectorAll(".container div");
-
-gridItems.forEach((item) => {
-  item.addEventListener("mouseenter", () => {
-    item.style.backgroundColor = "blue";
-  });
-});
